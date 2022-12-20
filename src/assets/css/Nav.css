@@ -1,0 +1,29 @@
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    min-height: 10vh;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    text-align: left;
+    width: 40%;
+    padding-left: 20px;
+}
+
+.shop, .cart {
+    width: 20%;
+}
