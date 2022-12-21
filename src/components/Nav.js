@@ -3,7 +3,7 @@ import "../assets/css/Nav.css";
 import { Link } from "react-router-dom";
 import Cart from "./Cart";
 
-const Nav = () => {
+const Nav = ({shoppingCart}) => {
     return (
         <header className="nav-bar">
             <Link to="/"><h2 className="hero-logo">Sensory Lexicons</h2></Link>
@@ -20,7 +20,7 @@ const Nav = () => {
                 <Link to="/shop/">
                     <li className="shop-link">Shop</li>
                 </Link>
-                <li><Cart /></li>
+                <li><Cart shoppingCart={shoppingCart}/></li>
             </ul>
         </header>     
     );

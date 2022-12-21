@@ -3,12 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import "../assets/css/Cart.css";
 
-const Cart = () => {
+const Cart = ({shoppingCart}) => {
     const [items, setItems] = useState(0);
     return (
         <div className="cart">
             <FontAwesomeIcon icon={faCartShopping}/>
-            <div className="cart-count">{items}</div>
+            <div className="cart-count">{shoppingCart.length}</div>
         </div>
     );
 };
