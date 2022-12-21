@@ -1,0 +1,137 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0;
+}
+
+#about,
+footer {
+    background-color: #1f2937;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+section {
+    padding: 100px 25%;
+}
+
+.hero-header {
+    font-size: 48px;
+    font-weight: 800;
+    color: #E5E7EB;
+    margin: 0;
+}
+
+.hero-text {
+    font-size: 18px;
+    color: #E5E7EB;
+    margin: 8px 0;
+}
+
+.about-section {
+    display: flex;
+}
+
+.about-section div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+button.signup {
+    font-size: 18px;
+    color: #E5E7EB;
+    background-color: #3882F6;
+    border-radius: 8px;
+    border: 0px;
+    padding: 8px 32px;
+}
+
+.samples-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.samples-header {
+    font-size: 36px;
+    font-weight: 900;
+    color:#1f2937;
+    text-align: center;
+}
+
+.samples {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+.sample {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sample img {
+    border: 2px solid #3882F6;
+    border-radius: 8px;
+}
+
+.sample-description {
+    margin: 0;
+    color: #1f2937;
+}
+
+#testimonials {
+    background-color: #E5E7EB;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.quote {
+    color: #1f2937;
+    font-size: 36px;
+    font-style: light italic;
+}
+
+.speaker {
+    color: #1f2937;
+}
+
+.signup-banner {
+    background-color: #3882F6;
+    color: #E5E7EB;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 16px 32px;
+}
+
+.cta-btn.signup {
+    border: 2px solid #F9FAF8;
+}
+
+div.cta h3,
+div.cta p {
+    margin: 0;
+}
+
+footer {
+    color: #E5E7EB;
+    padding: 24px 0;
+    display: flex;
+    justify-content: center;
+}

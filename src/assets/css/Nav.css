@@ -1,15 +1,22 @@
-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    color: white;
-    min-height: 10vh;
-}
-
-nav ul {
+.nav-bar {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    background-color: #1f2937;
+    color: white;
+    min-height: 10vh;
+    padding: 16px 5%;
+}
+
+.hero-logo {
+    font-size: 24px;
+    color: #F9FAF8;
+    text-align: left;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: flex-end;
     align-items: center;
     height: 100%;
     width: 100%;
@@ -18,12 +25,24 @@ nav ul {
     padding: 0;
 }
 
-.logo {
-    text-align: left;
-    width: 40%;
-    padding-left: 20px;
+a {
+    text-decoration: none; 
 }
 
-.shop, .cart {
-    width: 20%;
+li {
+    font-size: 18px;
+    color: #E5E7EB;
+    margin: 0 0 0 16px;
+    list-style-type: none;
+}
+
+.hero-logo:hover,
+li:hover {
+    color: #3882F6;
+}
+
+
+/* cart needs a hover pointer since it is not a link */
+.cart:hover {
+    cursor: pointer;
 }

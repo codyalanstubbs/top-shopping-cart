@@ -4,17 +4,24 @@ import { Link } from "react-router-dom";
 
 const Nav = () => {
     return (
-        <nav>
-            <ul>
-                <Link to="/">
-                    <li className="logo">LOGO</li>
+        <header className="nav-bar">
+            <Link to="/"><h2 className="hero-logo">Sensory Lexicons</h2></Link>
+            <ul className="nav-links">
+                <Link to="/#about">
+                    <li className="about-link">About</li>
+                </Link>
+                <Link to="/#samples">
+                    <li className="samples-link">Lexicons</li>
+                </Link>
+                <Link to="/#testimonials">
+                    <li className="testimonials-link">Testimonials</li>
                 </Link>
                 <Link to="/shop/">
-                    <li className="shop">SHOP</li>
+                    <li className="shop-link">Shop</li>
                 </Link>
-                <li className="cart">CART</li>
+                <li className="cart">Cart</li>
             </ul>
-        </nav>
+        </header>     
     );
 };
 
