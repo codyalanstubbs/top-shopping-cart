@@ -76,22 +76,6 @@ button.signup {
     gap: 10px;
 }
 
-.sample {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.sample img {
-    border: 2px solid #3882F6;
-    border-radius: 8px;
-}
-
-.sample-description {
-    margin: 0;
-    color: #1f2937;
-}
 
 #testimonials {
     background-color: #E5E7EB;
