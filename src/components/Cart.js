@@ -4,7 +4,6 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import "../assets/css/Cart.css";
 
 const Cart = ({shoppingCart}) => {
-    const [items, setItems] = useState(0);
     return (
         <div className="cart">
             <FontAwesomeIcon icon={faCartShopping}/>
