@@ -14,7 +14,7 @@ const Shop = ({addToCart}) => {
         <main>    
             <section id="samples">
                 <h2 className="samples-header">
-                    Hundreds of product lexicons, all in one place!
+                    Check out the sensory lexicons we have below!
                 </h2>
                 <div className="samples">
                     {allProductsData.map((product) => {
