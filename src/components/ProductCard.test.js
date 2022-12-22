@@ -20,7 +20,6 @@ const renderProductCardComponent = (productData) => render(
 );
 
 describe('Product', () => {
-    let queryByTestId;
 
     describe('Tests for all products', () => {
         test('Renders product card with id of "XUAk3"', () => {
@@ -37,14 +36,14 @@ describe('Product', () => {
 
         });
 
-        test('Renders product card with name of "Apple"', () => {
+        test('Renders product card with name of "Apple Lexicon"', () => {
  
              renderProductCardComponent({
                  ...defaultProductData,
                  name: 'Apple',
              });
      
-             const productName = screen.getByText('Apple');
+             const productName = screen.getByText('Apple Lexicon');
              expect(productName).toBeInTheDocument();            
  
         });
