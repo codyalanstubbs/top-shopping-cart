@@ -8,15 +8,15 @@ const Nav = ({shoppingCart}) => {
         <header className="nav-bar">
             <Link to="/"><h2 className="hero-logo">Sensory Lexicons</h2></Link>
             <ul className="nav-links">
-                <Link to="/#about">
+                <a href="/#about">
                     <li className="about-link">About</li>
-                </Link>
-                <Link to="/#samples">
+                </a>
+                <a href="/#samples">
                     <li className="samples-link">Lexicons</li>
-                </Link>
-                <Link to="/#testimonials">
+                </a>
+                <a href="/#testimonials">
                     <li className="testimonials-link">Testimonials</li>
-                </Link>
+                </a>
                 <Link to="/shop/">
                     <li className="shop-link">Shop</li>
                 </Link>
