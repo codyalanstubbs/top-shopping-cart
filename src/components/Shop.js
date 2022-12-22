@@ -1,7 +1,7 @@
 import React from "react";
 import ProductCard from "./ProductCard";
 
-const Shop = ({addToCart, shoppingCart, allProductsData}) => {
+const Shop = ({addToCart, decreaseQuantityInCart, shoppingCart, allProductsData}) => {
 
     return (
         <main>    
@@ -30,6 +30,7 @@ const Shop = ({addToCart, shoppingCart, allProductsData}) => {
                                 key={product.id}
                                 productData={product} 
                                 addToCart={addToCart}
+                                decreaseQuantityInCart={decreaseQuantityInCart}
                                 shoppingCart={shoppingCart}
                             />
                         );

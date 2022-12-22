@@ -36,12 +36,33 @@ const RouteSwitch = () => {
 
     };
 
+    const decreaseQuantityInCart = (productID) => {
+
+        // Separate newShoppingCart from old shopping cart
+        let newShoppingCart = [...shoppingCart];
+        let productInCart;
+
+        // Check if the product is already in the cart...
+        let isProductInCart = newShoppingCart.some((prod) => prod.id === productID);
+        if (!isProductInCart) {
+            // ...if product is NOT in the cart, then do nothing
+            return;
+        } else {
+            // ...if product is in the cart, then add to its quantity
+            productInCart = newShoppingCart.find((prod) => prod.id === productID);
+            if (productInCart.qty > 0) productInCart.qty--; 
+        }
+        
+        setShoppingCart(newShoppingCart);
+
+    };
+
     return (
         <BrowserRouter>
             <Nav shoppingCart={shoppingCart}/>
             <Routes>
                 <Route path="/" element={<Home />}></Route>
-                <Route path="/shop/" element={<Shop addToCart={addToCart} shoppingCart={shoppingCart} allProductsData={allProductsData}/>}></Route>
+                <Route path="/shop/" element={<Shop addToCart={addToCart} decreaseQuantityInCart={decreaseQuantityInCart} shoppingCart={shoppingCart} allProductsData={allProductsData}/>}></Route>
             </Routes>
         </BrowserRouter>
     );
