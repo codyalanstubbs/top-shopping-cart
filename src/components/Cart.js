@@ -12,7 +12,7 @@ const Cart = ({shoppingCart}) => {
     return (
         <div className="cart">
             <FontAwesomeIcon icon={faCartShopping}/>
-            <div className="cart-count">
+            <div data-testid="cart-count" className="cart-count">
                 {numItemsInCart}
             </div>
         </div>
