@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import userEvent from "@testing-library/user-event";
 import ProductCard from './ProductCard';
 
 const defaultProductData = {
@@ -13,15 +14,22 @@ const defaultProductData = {
 const renderProductCardComponent = (productData) => render(
         <ProductCard
             productData={productData}
-            handleAdd={jest.fn()}
+            addToCart={jest.fn()}
             handleIncreaseQnt={jest.fn()}
             handleDecreaseQnt={jest.fn()}
         />
 );
 
-describe('Product', () => {
+describe('Product Card', () => {
 
-    describe('Tests for all products', () => {
+    describe('Render default ProductCard', () => {
+        test("Renders ProductCard", () => {
+            const utils = renderProductCardComponent({...defaultProductData});
+            expect(utils).toMatchSnapshot();
+        });
+    });
+    
+    describe('Tests for "static" product information', () => {
         test('Renders product card with id of "XUAk3"', () => {
 
             renderProductCardComponent({
@@ -64,6 +72,47 @@ describe('Product', () => {
  
         });
     });
+
+    describe("Test dynamic, UI-driven changes to product data", () => {
+
+        test("Increases product quantity by 1", () => {
+            renderProductCardComponent({...defaultProductData});
+            const increaseQuantityBtn = screen.getByText('+');
+            expect(increaseQuantityBtn.className).toBe("qty-adjuster");
+
+            userEvent.click(increaseQuantityBtn);
+
+            const productQuantity = screen.getByTestId("p-qty");
+            expect(productQuantity).toBeInTheDocument();
+            expect(productQuantity.textContent).toBe("1");
+        });
+
+        test("Does not decrease product quantity when already 0", () => {
+            renderProductCardComponent({...defaultProductData, qty: 0});
+            const decreaseQuantityBtn = screen.getByText('-');
+            expect(decreaseQuantityBtn.className).toBe("qty-adjuster");
+
+            userEvent.click(decreaseQuantityBtn);
+
+            const productQuantity = screen.getByTestId("p-qty");
+            expect(productQuantity).toBeInTheDocument();
+            expect(productQuantity.textContent).toBe("0");
+            expect(productQuantity.textContent).not.toBe("-1");
+        });
+
+        test("Decreases product quantity by 1 when quantity > 0", () => {
+            renderProductCardComponent({...defaultProductData, qty: 1});
+            const decreaseQuantityBtn = screen.getByText('-');
+            expect(decreaseQuantityBtn.className).toBe("qty-adjuster");
+
+            userEvent.click(decreaseQuantityBtn);
+
+            const productQuantity = screen.getByTestId("p-qty");
+            expect(productQuantity).toBeInTheDocument();
+            expect(productQuantity.textContent).toBe("0");
+        });
+
+      });
     
 
 });
