@@ -4,10 +4,17 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import "../assets/css/Cart.css";
 
 const Cart = ({shoppingCart}) => {
+    // Calculate total quantity of all product quantities
+    let numItemsInCart = shoppingCart.reduce((totalQty, product) => {
+            return totalQty + product.qty;
+    }, 0);
+
     return (
         <div className="cart">
             <FontAwesomeIcon icon={faCartShopping}/>
-            <div className="cart-count">{shoppingCart.length}</div>
+            <div className="cart-count">
+                {numItemsInCart}
+            </div>
         </div>
     );
 };

@@ -17,14 +17,15 @@ const RouteSwitch = () => {
         let isProductInCart = newShoppingCart.some((prod) => prod.id === productData.id);
         if (!isProductInCart) {
             // ...if product is NOT in the cart, then add it
+            productData.qty++;
             newShoppingCart = newShoppingCart.concat(productData);
         } else {
             // ...if product is in the cart, then add to its quantity
             productInCart = newShoppingCart.find((prod) => prod.id === productData.id);
-            productInCart.qty = productInCart.qty + 1;
+            productInCart.qty++;
         }
-
         setShoppingCart(newShoppingCart);
+
     };
 
     return (
@@ -32,7 +33,7 @@ const RouteSwitch = () => {
             <Nav shoppingCart={shoppingCart}/>
             <Routes>
                 <Route path="/" element={<Home />}></Route>
-                <Route path="/shop/" element={<Shop addToCart={addToCart} />}></Route>
+                <Route path="/shop/" element={<Shop addToCart={addToCart} shoppingCart={shoppingCart}/>}></Route>
             </Routes>
         </BrowserRouter>
     );
