@@ -1,14 +1,7 @@
-import React, { useState } from "react";
-import uniquid from "uniquid";
+import React from "react";
 import ProductCard from "./ProductCard";
 
-const Shop = ({addToCart}) => {
-    const allProductsData = [
-        {id: uniquid(), name: "Apples",     cost: 100, qty: 0},
-        {id: uniquid(), name: "Oranges",    cost: 100, qty: 0},
-        {id: uniquid(), name: "Chocolate",  cost: 100, qty: 0},
-        {id: uniquid(), name: "Green Tea",  cost: 100, qty: 0},
-    ];
+const Shop = ({addToCart, shoppingCart, allProductsData}) => {
 
     return (
         <main>    
@@ -18,10 +11,26 @@ const Shop = ({addToCart}) => {
                 </h2>
                 <div className="samples">
                     {allProductsData.map((product) => {
+
+                        // Check if the product is already in the cart...
+                        let isProductInCart = shoppingCart.some((prod) => prod.id === product.id);
+                        let productInCart;
+
+                        if (!isProductInCart) {
+                            // ...if product is NOT in the cart, then set qty to 0
+                            product.qty = 0;
+                        } else {
+                            // ...if product is in the cart, then use its qty
+                            productInCart = shoppingCart.find((prod) => prod.id === product.id);
+                            product.qty = productInCart.qty;
+                        }
+
                         return (
                             <ProductCard 
+                                key={product.id}
                                 productData={product} 
                                 addToCart={addToCart}
+                                shoppingCart={shoppingCart}
                             />
                         );
                     })}

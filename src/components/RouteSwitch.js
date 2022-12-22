@@ -1,11 +1,19 @@
 import React, { useState } from "react";
+import uniquid from "uniquid";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import Shop from "./Shop";
 import Nav from "./Nav";
 
 const RouteSwitch = () => {
-    const [shoppingCart, setShoppingCart] = useState([]);
+    const [shoppingCart, setShoppingCart ] = useState([]);
+
+    const [ allProductsData, setAllProductsData ] = useState([
+        {id: uniquid(), name: "Apples",     cost: 100},
+        {id: uniquid(), name: "Oranges",    cost: 100},
+        {id: uniquid(), name: "Chocolate",  cost: 100},
+        {id: uniquid(), name: "Green Tea",  cost: 100},
+    ]);
 
     const addToCart = (productData) => {
 
@@ -33,7 +41,7 @@ const RouteSwitch = () => {
             <Nav shoppingCart={shoppingCart}/>
             <Routes>
                 <Route path="/" element={<Home />}></Route>
-                <Route path="/shop/" element={<Shop addToCart={addToCart} shoppingCart={shoppingCart}/>}></Route>
+                <Route path="/shop/" element={<Shop addToCart={addToCart} shoppingCart={shoppingCart} allProductsData={allProductsData}/>}></Route>
             </Routes>
         </BrowserRouter>
     );

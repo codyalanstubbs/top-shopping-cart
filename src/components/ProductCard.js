@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import FlavorWheelImage from "../assets/images/flavor-wheel.png";
 import "../assets/css/ProductCard.css";
 const ProductCard = ({productData, addToCart}) => {
-    const {id, name, cost, qty} = productData;
-    
+    const [qty, setQty] = useState(productData.qty);
+    const {id, name, cost} = productData;
+
     const handleAdd = (e) => {
-        addToCart(productData);
+        addToCart(productData)
+        setQty(qty+1);
     };
-    
+   
     return (
         <div
             key={id}
