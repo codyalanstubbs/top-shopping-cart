@@ -1,5 +1,6 @@
 import React from "react";
 import "../assets/css/Home.css";
+import { Link } from "react-router-dom";
 import FlavorWheelImage from "../assets/images/flavor-wheel.png";
 
 const Home = () => {
@@ -14,7 +15,9 @@ const Home = () => {
                             Develop faster with the largest online database of
                             published sensory lexicons.
                         </p>
-                        <button className="hero signup">Buy</button>
+                        <Link to="/shop/">
+                            <button className="hero signup">Buy</button>
+                        </Link>
                     </div>
                     <img src={FlavorWheelImage} alt="A flavor wheel." width="300px" height="300px" />
                 </section>
@@ -29,7 +32,9 @@ const Home = () => {
                             <strong>Stop wasting time reinventing the wheel!</strong>
                             <p>Purchase the largest database of sensory lexicons.</p>
                         </div>
-                        <button className="cta-btn signup">Buy</button>
+                        <Link to="/shop/">
+                            <button className="cta-btn signup">Buy</button>
+                        </Link>
                     </div>
                 </section>
             </main>
