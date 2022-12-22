@@ -11,9 +11,6 @@ const Nav = ({shoppingCart}) => {
                 <a href="/#about">
                     <li className="about-link">About</li>
                 </a>
-                <a href="/#samples">
-                    <li className="samples-link">Lexicons</li>
-                </a>
                 <a href="/#testimonials">
                     <li className="testimonials-link">Testimonials</li>
                 </a>

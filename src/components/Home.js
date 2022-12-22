@@ -18,27 +18,6 @@ const Home = () => {
                     </div>
                     <img src={FlavorWheelImage} alt="A flavor wheel." width="300px" height="300px" />
                 </section>
-                <section id="samples">
-                    <h2 className="samples-header">Hundreds of product lexicons, all in one place!</h2>
-                    <div className="samples">
-                        <div className="sample">
-                            <img src={FlavorWheelImage} alt="A flavor wheel for apples." width="100px" height="100px" />
-                            <p className="sample-description">Apples</p>
-                        </div>
-                        <div className="sample">
-                            <img src={FlavorWheelImage} alt="A flavor wheel for oranges." width="100px" height="100px" />
-                            <p className="sample-description">Oranges</p>
-                        </div>
-                        <div className="sample">
-                            <img src={FlavorWheelImage} alt="A flavor wheel for chocolate." width="100px" height="100px" />
-                            <p className="sample-description">Chocolate</p>
-                        </div>
-                        <div className="sample">
-                            <img src={FlavorWheelImage} alt="A flavor wheel for green tea." width="100px" height="100px" />
-                            <p className="sample-description">Green Tea</p>
-                        </div>
-                    </div>
-                </section>
                 <section id="testimonials">
                     <em className="quote">Having a database of sensory attributes is very helpful when moving into a new product
                         category or expanding our current company lexicon.</em>
