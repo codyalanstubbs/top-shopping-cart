@@ -61,8 +61,19 @@ const RouteSwitch = () => {
         <BrowserRouter>
             <Nav shoppingCart={shoppingCart}/>
             <Routes>
-                <Route path="/" element={<Home />}></Route>
-                <Route path="/shop/" element={<Shop increaseQtyInCart={increaseQtyInCart} decreaseQtyInCart={decreaseQtyInCart} shoppingCart={shoppingCart} allProductsData={allProductsData}/>}></Route>
+                <Route 
+                    path="/" element={<Home />}
+                />
+                <Route
+                    path="/shop/" 
+                    element={
+                        <Shop 
+                            increaseQtyInCart={increaseQtyInCart} 
+                            decreaseQtyInCart={decreaseQtyInCart} 
+                            shoppingCart={shoppingCart} allProductsData={allProductsData}
+                        />
+                    }
+                />
             </Routes>
         </BrowserRouter>
     );
