@@ -15,7 +15,7 @@ const RouteSwitch = () => {
         {id: uniquid(), name: "Green Tea",  cost: 100},
     ]);
 
-    const addToCart = (productData) => {
+    const increaseQtyInCart = (productData) => {
 
         // Separate newShoppingCart from old shopping cart
         let newShoppingCart = [...shoppingCart];
@@ -36,7 +36,7 @@ const RouteSwitch = () => {
 
     };
 
-    const decreaseQuantityInCart = (productID) => {
+    const decreaseQtyInCart = (productID) => {
 
         // Separate newShoppingCart from old shopping cart
         let newShoppingCart = [...shoppingCart];
@@ -62,7 +62,7 @@ const RouteSwitch = () => {
             <Nav shoppingCart={shoppingCart}/>
             <Routes>
                 <Route path="/" element={<Home />}></Route>
-                <Route path="/shop/" element={<Shop addToCart={addToCart} decreaseQuantityInCart={decreaseQuantityInCart} shoppingCart={shoppingCart} allProductsData={allProductsData}/>}></Route>
+                <Route path="/shop/" element={<Shop increaseQtyInCart={increaseQtyInCart} decreaseQtyInCart={decreaseQtyInCart} shoppingCart={shoppingCart} allProductsData={allProductsData}/>}></Route>
             </Routes>
         </BrowserRouter>
     );

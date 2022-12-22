@@ -14,8 +14,8 @@ const defaultProductData = {
 const renderProductCardComponent = (productData) => render(
         <ProductCard
             productData={productData}
-            addToCart={jest.fn()}
-            decreaseQuantityInCart={jest.fn()}
+            increaseQtyInCart={jest.fn()}
+            decreaseQtyInCart={jest.fn()}
         />
 );
 
