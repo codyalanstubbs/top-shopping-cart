@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import uniquid from "uniquid";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import Shop from "./Shop";
@@ -15,10 +14,10 @@ const RouteSwitch = () => {
     const [shoppingCart, setShoppingCart ] = useState([]);
 
     const [ allProductsData, setAllProductsData ] = useState([
-        {id: uniquid(), name: "Apples",     cost: 100},
-        {id: uniquid(), name: "Oranges",    cost: 100},
-        {id: uniquid(), name: "Chocolate",  cost: 100},
-        {id: uniquid(), name: "Green Tea",  cost: 100},
+        {id: 1, name: "Apples",     cost: 100},
+        {id: 2, name: "Oranges",    cost: 100},
+        {id: 3, name: "Chocolate",  cost: 100},
+        {id: 4, name: "Green Tea",  cost: 100},
     ]);
 
     const increaseQtyInCart = (productData) => {
