@@ -76,7 +76,7 @@ const RouteSwitch = () => {
         } else {
             // ...if product is in the cart, then add the new quantity
             productInCart = newShoppingCart.find((prod) => prod.id === productID);
-            productInCart.qty = newNumber; 
+            productInCart.qty = productInCart.qty + newNumber; 
         }
         
         setShoppingCart(newShoppingCart);

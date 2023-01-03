@@ -4,18 +4,41 @@ import "../assets/css/ProductCard.css";
 const ProductCard = ({productData, increaseQtyInCart, decreaseQtyInCart, setQtyInCart}) => {
     const {id, name, cost, qty} = productData;
 
-    const handleIncreaseQty = (e) => {
-        increaseQtyInCart(productData)
+    const handleIncreaseQty = (event) => {
+        const productID = event.target.id;
+        const qtyInput = document.querySelector(`#\\3${productID}.qty`);
+
+        if (qtyInput.value >= 0) {
+            const newValue = Number(qtyInput.value) + 1;
+            qtyInput.value = newValue;
+        }
     };
 
-    const handleDecreaseQty = (e) => {
-        decreaseQtyInCart(id);
+    const handleDecreaseQty = (event) => {
+        const productID = event.target.id;
+        const qtyInput = document.querySelector(`#\\3${productID}.qty`);
+
+        if (qtyInput.value > 0) {
+            const newValue = Number(qtyInput.value) - 1;
+            qtyInput.value = newValue;
+        }
     };
 
     const onTextChange = (event) => {
         const newValue = event.target.value;
+        if (newValue >= 0) {
+            event.target.value = newValue;
+        }
+    }
+
+    const changeProductQuantity = (event) => {
         const productID = event.target.id;
-        setQtyInCart(newValue, productID);
+        const qtyInput = document.querySelector(`#\\3${productID}.qty`);
+
+        if (qtyInput.value >= 0) {
+            setQtyInCart(qtyInput.value, productID);
+            qtyInput.value = 0;
+        }
     }
     
     return (
@@ -29,10 +52,11 @@ const ProductCard = ({productData, increaseQtyInCart, decreaseQtyInCart, setQtyI
             <p data-testid="p-name">{name} Lexicon</p>
             <p data-testid="p-cost">{"$"+cost}</p>
             <div className="p-qty-container">
-                <button className="qty-adjuster" onClick={handleDecreaseQty}>-</button>
-                <input id={id} data-testid="p-qty" value={qty} onChange={onTextChange}/>
-                <button className="qty-adjuster" onClick={handleIncreaseQty}>+</button>
+                <button id={id} className="qty-adjuster" onClick={handleDecreaseQty} >-</button>
+                <input id={id} className="qty" placeholder="0" onChange={onTextChange} />
+                <button id={id} className="qty-adjuster" onClick={handleIncreaseQty} >+</button>
             </div>
+            <button id={id} className="add" onClick={changeProductQuantity}>ADD</button>
         </div>
     );       
 };

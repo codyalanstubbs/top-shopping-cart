@@ -32,20 +32,28 @@ Object {
         >
           <button
             class="qty-adjuster"
+            id="Ex2ods"
           >
             -
           </button>
-          <p
-            data-testid="p-qty"
-          >
-            0
-          </p>
+          <input
+            class="qty"
+            id="Ex2ods"
+            placeholder="0"
+          />
           <button
             class="qty-adjuster"
+            id="Ex2ods"
           >
             +
           </button>
         </div>
+        <button
+          class="add"
+          id="Ex2ods"
+        >
+          ADD
+        </button>
       </div>
     </div>
   </body>,
@@ -77,20 +85,28 @@ Object {
       >
         <button
           class="qty-adjuster"
+          id="Ex2ods"
         >
           -
         </button>
-        <p
-          data-testid="p-qty"
-        >
-          0
-        </p>
+        <input
+          class="qty"
+          id="Ex2ods"
+          placeholder="0"
+        />
         <button
           class="qty-adjuster"
+          id="Ex2ods"
         >
           +
         </button>
       </div>
+      <button
+        class="add"
+        id="Ex2ods"
+      >
+        ADD
+      </button>
     </div>
   </div>,
   "debug": [Function],
