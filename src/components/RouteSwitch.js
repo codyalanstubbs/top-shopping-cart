@@ -4,6 +4,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import Shop from "./Shop";
 import Nav from "./Nav";
+import CartDisplay from "./CartDisplay";
+
+const toggleDisplayCart = () => {
+    const cart = document.querySelector(".displayed-cart");
+    cart.classList.toggle("displayed");
+};
 
 const RouteSwitch = () => {
     const [shoppingCart, setShoppingCart ] = useState([]);
@@ -59,7 +65,7 @@ const RouteSwitch = () => {
 
     return (
         <BrowserRouter>
-            <Nav shoppingCart={shoppingCart}/>
+            <Nav shoppingCart={shoppingCart} toggleDisplayCart={toggleDisplayCart}/>
             <Routes>
                 <Route 
                     path="/" element={<Home />}
@@ -75,6 +81,12 @@ const RouteSwitch = () => {
                     }
                 />
             </Routes>
+            <CartDisplay 
+                increaseQtyInCart={increaseQtyInCart}
+                decreaseQtyInCart={decreaseQtyInCart} 
+                shoppingCart={shoppingCart}
+                toggleDisplayCart={toggleDisplayCart}
+            />
         </BrowserRouter>
     );
 };

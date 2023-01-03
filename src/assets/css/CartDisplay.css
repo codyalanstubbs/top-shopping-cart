@@ -1,0 +1,23 @@
+.displayed-cart {
+    display: none;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100vh;
+    width: fit-content;
+    background-color: #a7c9ff;
+}
+
+.displayed-cart.displayed {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-box {
+    display: flex;
+    align-items: center;
+}
+
+.close-cart {
+    align-self: flex-end;
+}

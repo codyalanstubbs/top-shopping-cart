@@ -3,7 +3,7 @@ import "../assets/css/Nav.css";
 import { Link } from "react-router-dom";
 import Cart from "./Cart";
 
-const Nav = ({shoppingCart}) => {
+const Nav = ({shoppingCart, toggleDisplayCart}) => {
     return (
         <header className="nav-bar">
             <Link to="/"><h2 className="hero-logo">Sensory Lexicons</h2></Link>
@@ -17,7 +17,7 @@ const Nav = ({shoppingCart}) => {
                 <Link to="/shop/">
                     <li className="shop-link">Shop</li>
                 </Link>
-                <li><Cart shoppingCart={shoppingCart}/></li>
+                <li onClick={toggleDisplayCart}><Cart shoppingCart={shoppingCart}/></li>
             </ul>
         </header>     
     );
