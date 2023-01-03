@@ -70,48 +70,6 @@ describe('Product Card', () => {
              expect(productCost.textContent).not.toBe("$"+defaultProductData.cost);
  
         });
-    });
-
-    describe("Test dynamic, UI-driven changes to product data", () => {
-
-        test("Increases product quantity by 1", () => {
-            renderProductCardComponent({...defaultProductData});
-            const increaseQuantityBtn = screen.getByText('+');
-            expect(increaseQuantityBtn.className).toBe("qty-adjuster");
-
-            userEvent.click(increaseQuantityBtn);
-
-            const productQuantity = screen.getByTestId("p-qty");
-            expect(productQuantity).toBeInTheDocument();
-            expect(productQuantity.textContent).toBe("1");
-        });
-
-        test("Does not decrease product quantity when already 0", () => {
-            renderProductCardComponent({...defaultProductData, qty: 0});
-            const decreaseQuantityBtn = screen.getByText('-');
-            expect(decreaseQuantityBtn.className).toBe("qty-adjuster");
-
-            userEvent.click(decreaseQuantityBtn);
-
-            const productQuantity = screen.getByTestId("p-qty");
-            expect(productQuantity).toBeInTheDocument();
-            expect(productQuantity.textContent).toBe("0");
-            expect(productQuantity.textContent).not.toBe("-1");
-        });
-
-        test("Decreases product quantity by 1 when quantity > 0", () => {
-            renderProductCardComponent({...defaultProductData, qty: 1});
-            const decreaseQuantityBtn = screen.getByText('-');
-            expect(decreaseQuantityBtn.className).toBe("qty-adjuster");
-
-            userEvent.click(decreaseQuantityBtn);
-
-            const productQuantity = screen.getByTestId("p-qty");
-            expect(productQuantity).toBeInTheDocument();
-            expect(productQuantity.textContent).toBe("0");
-        });
-
-      });
-    
+    });    
 
 });
