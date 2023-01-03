@@ -2,17 +2,14 @@ import React, { useState } from "react";
 import FlavorWheelImage from "../assets/images/flavor-wheel.png";
 import "../assets/css/ProductCard.css";
 const ProductCard = ({productData, increaseQtyInCart, decreaseQtyInCart}) => {
-    const [qty, setQty] = useState(productData.qty);
-    const {id, name, cost} = productData;
+    const {id, name, cost, qty} = productData;
 
     const handleIncreaseQty = (e) => {
         increaseQtyInCart(productData)
-        setQty(qty+1);
     };
 
     const handleDecreaseQty = (e) => {
         decreaseQtyInCart(id);
-        if (qty > 0) setQty(qty-1);
     };
    
     return (
