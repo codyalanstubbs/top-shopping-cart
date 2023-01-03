@@ -3,6 +3,12 @@ p {
     text-align: center;
 }
 
+input {
+    margin: 0;
+    text-align: center;
+    width: 50px;
+}
+
 .sample {
     display: flex;
     flex-direction: column;
