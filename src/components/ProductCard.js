@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FlavorWheelImage from "../assets/images/flavor-wheel.png";
 import "../assets/css/ProductCard.css";
-const ProductCard = ({productData, increaseQtyInCart, decreaseQtyInCart}) => {
+const ProductCard = ({productData, increaseQtyInCart, decreaseQtyInCart, setQtyInCart}) => {
     const {id, name, cost, qty} = productData;
 
     const handleIncreaseQty = (e) => {
@@ -11,7 +11,13 @@ const ProductCard = ({productData, increaseQtyInCart, decreaseQtyInCart}) => {
     const handleDecreaseQty = (e) => {
         decreaseQtyInCart(id);
     };
-   
+
+    const onTextChange = (event) => {
+        const newValue = event.target.value;
+        const productID = event.target.id;
+        setQtyInCart(newValue, productID);
+    }
+    
     return (
         <div
             key={id}
@@ -24,11 +30,11 @@ const ProductCard = ({productData, increaseQtyInCart, decreaseQtyInCart}) => {
             <p data-testid="p-cost">{"$"+cost}</p>
             <div className="p-qty-container">
                 <button className="qty-adjuster" onClick={handleDecreaseQty}>-</button>
-                <p data-testid="p-qty">{qty}</p>
+                <input id={id} data-testid="p-qty" value={qty} onChange={onTextChange}/>
                 <button className="qty-adjuster" onClick={handleIncreaseQty}>+</button>
             </div>
         </div>
-    );
+    );       
 };
 
 export default ProductCard;

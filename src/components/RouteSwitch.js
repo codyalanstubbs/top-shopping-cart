@@ -62,6 +62,27 @@ const RouteSwitch = () => {
         setShoppingCart(newShoppingCart);
 
     };
+    
+    const setQtyInCart = (newValue, productID) => {
+        const newNumber = Number(newValue);
+        // Separate newShoppingCart from old shopping cart
+        let newShoppingCart = [...shoppingCart];
+        let productInCart;
+
+        // Check if the product is already in the cart...
+        let isProductInCart = newShoppingCart.some((prod) => prod.id === productID);
+        if (!isProductInCart) {
+            // ...if product is NOT in the cart, then add it
+            newShoppingCart = newShoppingCart.concat({id: productID, name: "Apples",     cost: 100, qty: newNumber});
+        } else {
+            // ...if product is in the cart, then add the new quantity
+            productInCart = newShoppingCart.find((prod) => prod.id === productID);
+            productInCart.qty = newNumber; 
+        }
+        
+        setShoppingCart(newShoppingCart);
+
+    };
 
     return (
         <BrowserRouter>
@@ -76,6 +97,7 @@ const RouteSwitch = () => {
                         <Shop 
                             increaseQtyInCart={increaseQtyInCart} 
                             decreaseQtyInCart={decreaseQtyInCart} 
+                            setQtyInCart={setQtyInCart}
                             shoppingCart={shoppingCart} allProductsData={allProductsData}
                         />
                     }
