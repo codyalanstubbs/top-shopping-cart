@@ -24,7 +24,7 @@ const CartDisplay = ({shoppingCart, toggleDisplayCart,  increaseQtyInCart, decre
 
     return (
         <div className="displayed-cart" data-testid="displayed-cart">
-            <div className="close-cart" onClick={toggleDisplayCart}>{'Hide>'}</div>
+            <button className="close-cart" onClick={toggleDisplayCart}>Hide Cart</button>
             <h2>Shopping Cart</h2>
             <div className="products">
                 {
