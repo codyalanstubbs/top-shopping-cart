@@ -4,7 +4,8 @@
     top: 0px;
     right: 0px;
     height: 100vh;
-    width: fit-content;
+    width: 400px;
+    padding: 0px 20px;
     background-color: #a7c9ff;
 }
 
@@ -13,11 +14,42 @@
     flex-direction: column;
 }
 
-.product-box {
-    display: flex;
-    align-items: center;
-}
-
 .close-cart {
     align-self: flex-end;
+}
+
+.product-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0px;
+    border-top: 1px solid darkgrey;
+}
+
+.product-box:last-of-type {
+    border-bottom: 1px solid darkgrey;
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    padding-left: 25px;
+}
+
+.lexicon-cost {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 275px;
+}
+
+.qty-container {
+    display: flex;
+    align-items: flex-end;
+}
+
+.product-total {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
 }
