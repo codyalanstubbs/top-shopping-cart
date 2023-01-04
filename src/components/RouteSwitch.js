@@ -20,6 +20,21 @@ const RouteSwitch = () => {
         {id: 4, name: "Green Tea",  cost: 100},
     ]);
 
+    const removeFromCart = (id) => {
+        const productID = Number(id);
+
+        // Separate newShoppingCart from old shopping cart
+        let newShoppingCart = [...shoppingCart];
+
+        // Remove the product by id
+        newShoppingCart = newShoppingCart.filter((product) => {
+            console.log(product.id !== productID);
+            return product.id !== productID;
+        });
+
+        setShoppingCart(newShoppingCart);
+    };
+
     const increaseQtyInCart = (productData) => {
 
         // Separate newShoppingCart from old shopping cart
@@ -58,7 +73,6 @@ const RouteSwitch = () => {
             if (productInCart.qty > 0) productInCart.qty--; 
         }
         
-        setShoppingCart(newShoppingCart);
 
     };
     
@@ -113,6 +127,7 @@ const RouteSwitch = () => {
                 increaseQtyInCart={increaseQtyInCart}
                 decreaseQtyInCart={decreaseQtyInCart} 
                 setQtyInCart={setQtyInCart}
+                removeFromCart={removeFromCart}
                 shoppingCart={shoppingCart}
                 toggleDisplayCart={toggleDisplayCart}
             />
