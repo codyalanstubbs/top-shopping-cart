@@ -4,31 +4,58 @@ import FlavorWheelImage from "../assets/images/flavor-wheel.png";
 
 
 const CartDisplay = ({shoppingCart, toggleDisplayCart,  increaseQtyInCart, decreaseQtyInCart, setQtyInCart}) => {
+    const cartCostTotal = shoppingCart.reduce(
+        (accumulator, product) =>  accumulator + (product.qty * product.cost),
+        0
+    );
+
+    const totalCurrency = new Intl.NumberFormat("en-US",
+        {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 2,
+        }
+    ).format(cartCostTotal);
+
+    const itemsCount = shoppingCart.reduce(
+        (accumulator, product) =>  accumulator + product.qty,
+        0
+    );
 
     return (
         <div className="displayed-cart" data-testid="displayed-cart">
             <div className="close-cart" onClick={toggleDisplayCart}>{'Hide>'}</div>
             <h2>Shopping Cart</h2>
-            {
-                shoppingCart.map((product) => {
-                    const { id, name, cost, qty } = product;
-                    return (
-                        <div key={id} id={id} className="product-box" data-testid="product-box">
-                            <img src={FlavorWheelImage} alt="A flavor wheel for green tea." width="100px" height="100px" />
-                            <div className="product-details">
-                                <div className="lexicon-cost">
-                                    <h3 data-testid="p-name">{name} Lexicon</h3>
-                                    <p data-testid="p-cost">{"$"+cost}</p>
-                                </div>
-                                <div className="qty-container">
-                                    <p>Qty:&nbsp;</p>
-                                    <p data-testid="p-qty" className="cart-qty">{qty}</p>
+            <div className="products">
+                {
+                    shoppingCart.map((product) => {
+                        const { id, name, cost, qty } = product;
+                        return (
+                            <div key={id} id={id} className="product-box" data-testid="product-box">
+                                <img src={FlavorWheelImage} alt="A flavor wheel for green tea." width="100px" height="100px" />
+                                <div className="product-details">
+                                    <div className="lexicon-cost">
+                                        <h3 data-testid="p-name">{name} Lexicon</h3>
+                                        <p data-testid="p-cost">{"$"+cost}</p>
+                                    </div>
+                                    <div className="qty-container">
+                                        <p>Qty:&nbsp;</p>
+                                        <p data-testid="p-qty" className="cart-qty">{qty}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    );
-                })
-            }
+                        );
+                    })
+                }
+            </div>
+            <div className="product-total" >
+                <p>
+                    Subtotal ({itemsCount} items):&nbsp;
+                </p>
+                <strong>
+                    {totalCurrency}
+                </strong>
+            </div>
         </div>
     );
 };
