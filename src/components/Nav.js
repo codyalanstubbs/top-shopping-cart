@@ -1,6 +1,7 @@
 import React from "react";
 import "../assets/css/Nav.css";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import Cart from "./Cart";
 
 const Nav = ({shoppingCart, toggleDisplayCart}) => {
@@ -8,12 +9,12 @@ const Nav = ({shoppingCart, toggleDisplayCart}) => {
         <header className="nav-bar">
             <Link to="/"><h2 className="hero-logo">Sensory Lexicons</h2></Link>
             <ul className="nav-links">
-                <a href="/#about">
+                <HashLink to="/#about">
                     <li className="about-link">About</li>
-                </a>
-                <a href="/#testimonials">
+                </HashLink>
+                <HashLink to="/#testimonials">
                     <li className="testimonials-link">Testimonials</li>
-                </a>
+                </HashLink>
                 <Link to="/shop/">
                     <li className="shop-link">Shop</li>
                 </Link>
