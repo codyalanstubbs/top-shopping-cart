@@ -17,7 +17,7 @@ describe('Displaying products in the cart', () => {
         render(<CartDisplay shoppingCart={shoppingCart} />);
 
         const productBoxes  = screen.queryAllByTestId('product-box');
-        const productNames  = screen.getAllByRole('heading');
+        const productNames  = screen.getAllByTestId('p-name');
         const productQtys   = screen.getAllByTestId('p-qty');
         const productCosts  = screen.getAllByTestId('p-cost');
 
@@ -34,7 +34,7 @@ describe('Displaying products in the cart', () => {
                 () => { expect(productNames[i].textContent).toBe(`${shoppingCart[i].name} Lexicon`) }
             )
             test(`Should render product box with quantity input = product-${i}'s qty = ${shoppingCart[i].qty}`,  
-                () => { expect(productQtys[i].value).toBe(`${shoppingCart[i].qty}`) }
+                () => { expect(productQtys[i].textContent).toBe(`${shoppingCart[i].qty}`) }
             )
             test(`Should render product box with cost = product-${i}'s cost = ${shoppingCart[i].cost}`,  
                 () => { expect(productCosts[i].textContent).toBe(`$${shoppingCart[i].cost}`) }
