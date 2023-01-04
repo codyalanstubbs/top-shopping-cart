@@ -62,20 +62,27 @@ const RouteSwitch = () => {
 
     };
     
-    const setQtyInCart = (newValue, productID) => {
+    const setQtyInCart = (newValue, productData) => {
         const newNumber = Number(newValue);
         // Separate newShoppingCart from old shopping cart
         let newShoppingCart = [...shoppingCart];
         let productInCart;
 
         // Check if the product is already in the cart...
-        let isProductInCart = newShoppingCart.some((prod) => prod.id === productID);
+        let isProductInCart = newShoppingCart.some((prod) => prod.id === productData.id);
         if (!isProductInCart) {
             // ...if product is NOT in the cart, then add it
-            newShoppingCart = newShoppingCart.concat({id: productID, name: "Apples",     cost: 100, qty: newNumber});
+            newShoppingCart = newShoppingCart.concat(
+                {
+                    id: productData.id, 
+                    name: productData.name, 
+                    cost: productData.cost, 
+                    qty: newNumber
+                }
+            );
         } else {
             // ...if product is in the cart, then add the new quantity
-            productInCart = newShoppingCart.find((prod) => prod.id === productID);
+            productInCart = newShoppingCart.find((prod) => prod.id === productData.id);
             productInCart.qty = productInCart.qty + newNumber; 
         }
         
@@ -105,6 +112,7 @@ const RouteSwitch = () => {
             <CartDisplay 
                 increaseQtyInCart={increaseQtyInCart}
                 decreaseQtyInCart={decreaseQtyInCart} 
+                setQtyInCart={setQtyInCart}
                 shoppingCart={shoppingCart}
                 toggleDisplayCart={toggleDisplayCart}
             />

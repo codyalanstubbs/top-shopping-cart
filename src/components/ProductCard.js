@@ -32,11 +32,11 @@ const ProductCard = ({productData, increaseQtyInCart, decreaseQtyInCart, setQtyI
     }
 
     const changeProductQuantity = (event) => {
-        const productID = event.target.id;
+        const productID = id;
         const qtyInput = document.querySelector(`#\\3${productID}.qty`);
 
         if (qtyInput.value >= 0) {
-            setQtyInCart(qtyInput.value, productID);
+            setQtyInCart(qtyInput.value, productData);
             qtyInput.value = 0;
         }
     }
