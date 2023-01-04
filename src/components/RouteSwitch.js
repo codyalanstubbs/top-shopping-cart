@@ -34,47 +34,6 @@ const RouteSwitch = () => {
 
         setShoppingCart(newShoppingCart);
     };
-
-    const increaseQtyInCart = (productData) => {
-
-        // Separate newShoppingCart from old shopping cart
-        let newShoppingCart = [...shoppingCart];
-        let productInCart;
-
-        // Check if the product is already in the cart...
-        let isProductInCart = newShoppingCart.some((prod) => prod.id === productData.id);
-        if (!isProductInCart) {
-            // ...if product is NOT in the cart, then add it
-            productData.qty++;
-            newShoppingCart = newShoppingCart.concat(productData);
-        } else {
-            // ...if product is in the cart, then add to its quantity
-            productInCart = newShoppingCart.find((prod) => prod.id === productData.id);
-            productInCart.qty++;
-        }
-        setShoppingCart(newShoppingCart);
-
-    };
-
-    const decreaseQtyInCart = (productID) => {
-
-        // Separate newShoppingCart from old shopping cart
-        let newShoppingCart = [...shoppingCart];
-        let productInCart;
-
-        // Check if the product is already in the cart...
-        let isProductInCart = newShoppingCart.some((prod) => prod.id === productID);
-        if (!isProductInCart) {
-            // ...if product is NOT in the cart, then do nothing
-            return;
-        } else {
-            // ...if product is in the cart, then add to its quantity
-            productInCart = newShoppingCart.find((prod) => prod.id === productID);
-            if (productInCart.qty > 0) productInCart.qty--; 
-        }
-        
-
-    };
     
     const setQtyInCart = (newValue, productData) => {
         const newNumber = Number(newValue);
@@ -115,8 +74,6 @@ const RouteSwitch = () => {
                     path="/shop/" 
                     element={
                         <Shop 
-                            increaseQtyInCart={increaseQtyInCart} 
-                            decreaseQtyInCart={decreaseQtyInCart} 
                             setQtyInCart={setQtyInCart}
                             shoppingCart={shoppingCart} allProductsData={allProductsData}
                         />
@@ -124,8 +81,6 @@ const RouteSwitch = () => {
                 />
             </Routes>
             <CartDisplay 
-                increaseQtyInCart={increaseQtyInCart}
-                decreaseQtyInCart={decreaseQtyInCart} 
                 setQtyInCart={setQtyInCart}
                 removeFromCart={removeFromCart}
                 shoppingCart={shoppingCart}

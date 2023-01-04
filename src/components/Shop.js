@@ -29,8 +29,6 @@ const Shop = ({increaseQtyInCart, decreaseQtyInCart, setQtyInCart, shoppingCart,
                             <ProductCard 
                                 key={product.id}
                                 productData={product} 
-                                increaseQtyInCart={increaseQtyInCart}
-                                decreaseQtyInCart={decreaseQtyInCart} 
                                 setQtyInCart={setQtyInCart}
                                 shoppingCart={shoppingCart}
                             />

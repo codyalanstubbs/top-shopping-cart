@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FlavorWheelImage from "../assets/images/flavor-wheel.png";
 import "../assets/css/ProductCard.css";
-const ProductCard = ({productData, increaseQtyInCart, decreaseQtyInCart, setQtyInCart}) => {
+const ProductCard = ({productData, setQtyInCart}) => {
     const {id, name, cost, qty} = productData;
 
     const handleIncreaseQty = (event) => {

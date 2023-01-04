@@ -3,7 +3,7 @@ import "../assets/css/CartDisplay.css";
 import FlavorWheelImage from "../assets/images/flavor-wheel.png";
 
 
-const CartDisplay = ({shoppingCart, toggleDisplayCart, removeFromCart, increaseQtyInCart, decreaseQtyInCart, setQtyInCart}) => {
+const CartDisplay = ({shoppingCart, toggleDisplayCart, removeFromCart}) => {
     const cartCostTotal = shoppingCart.reduce(
         (accumulator, product) =>  accumulator + (product.qty * product.cost),
         0
