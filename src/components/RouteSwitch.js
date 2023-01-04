@@ -68,10 +68,10 @@ const RouteSwitch = () => {
             <Nav shoppingCart={shoppingCart} toggleDisplayCart={toggleDisplayCart}/>
             <Routes>
                 <Route 
-                    path="/" element={<Home />}
+                    path="/the-odin-project/21-shopping-cart/" element={<Home />}
                 />
                 <Route
-                    path="/shop/" 
+                    path="/the-odin-project/21-shopping-cart/shop/" 
                     element={
                         <Shop 
                             setQtyInCart={setQtyInCart}

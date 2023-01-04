@@ -7,15 +7,15 @@ import Cart from "./Cart";
 const Nav = ({shoppingCart, toggleDisplayCart}) => {
     return (
         <header className="nav-bar">
-            <Link to="/"><h2 className="hero-logo">Sensory Lexicons</h2></Link>
+            <Link to="/the-odin-project/21-shopping-cart/"><h2 className="hero-logo">Sensory Lexicons</h2></Link>
             <ul className="nav-links">
-                <HashLink to="/#about">
+                <HashLink to="/the-odin-project/21-shopping-cart/#about">
                     <li className="about-link">About</li>
                 </HashLink>
-                <HashLink to="/#testimonials">
+                <HashLink to="/the-odin-project/21-shopping-cart/#testimonials">
                     <li className="testimonials-link">Testimonials</li>
                 </HashLink>
-                <Link to="/shop/">
+                <Link to="/the-odin-project/21-shopping-cart/shop/">
                     <li className="shop-link">Shop</li>
                 </Link>
                 <li onClick={toggleDisplayCart}><Cart shoppingCart={shoppingCart}/></li>

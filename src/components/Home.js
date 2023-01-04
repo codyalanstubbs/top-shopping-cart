@@ -15,7 +15,7 @@ const Home = () => {
                             Develop faster with the largest online database of
                             published sensory lexicons.
                         </p>
-                        <Link to="/shop/">
+                        <Link to="/the-odin-project/21-shopping-cart/shop/">
                             <button className="hero signup">Buy</button>
                         </Link>
                     </div>
@@ -32,7 +32,7 @@ const Home = () => {
                             <strong>Stop wasting time reinventing the wheel!</strong>
                             <p>Purchase the largest database of sensory lexicons.</p>
                         </div>
-                        <Link to="/shop/">
+                        <Link to="/the-odin-project/21-shopping-cart/shop/">
                             <button className="cta-btn signup">Buy</button>
                         </Link>
                     </div>
