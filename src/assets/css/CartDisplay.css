@@ -48,6 +48,11 @@ h3 {
     width: 275px;
 }
 
+.qty-remove {
+    display: flex;
+    justify-content: space-between;
+}
+
 .qty-container {
     display: flex;
     align-items: flex-end;

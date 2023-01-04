@@ -3,7 +3,7 @@ import "../assets/css/CartDisplay.css";
 import FlavorWheelImage from "../assets/images/flavor-wheel.png";
 
 
-const CartDisplay = ({shoppingCart, toggleDisplayCart,  increaseQtyInCart, decreaseQtyInCart, setQtyInCart}) => {
+const CartDisplay = ({shoppingCart, toggleDisplayCart, removeFromCart, increaseQtyInCart, decreaseQtyInCart, setQtyInCart}) => {
     const cartCostTotal = shoppingCart.reduce(
         (accumulator, product) =>  accumulator + (product.qty * product.cost),
         0
@@ -22,6 +22,12 @@ const CartDisplay = ({shoppingCart, toggleDisplayCart,  increaseQtyInCart, decre
         0
     );
 
+    const handleClickRemoveBtn = (event) => {
+        const productID = event.target.id;
+        console.log(productID);
+        removeFromCart(productID);
+    };
+
     return (
         <div className="displayed-cart" data-testid="displayed-cart">
             <button className="close-cart" onClick={toggleDisplayCart}>Hide Cart</button>
@@ -38,9 +44,12 @@ const CartDisplay = ({shoppingCart, toggleDisplayCart,  increaseQtyInCart, decre
                                         <h3 data-testid="p-name">{name} Lexicon</h3>
                                         <p data-testid="p-cost">{"$"+cost}</p>
                                     </div>
-                                    <div className="qty-container">
-                                        <p>Qty:&nbsp;</p>
-                                        <p data-testid="p-qty" className="cart-qty">{qty}</p>
+                                    <div className="qty-remove">
+                                        <button id={id} onClick={handleClickRemoveBtn}>Remove From Cart</button>
+                                        <div className="qty-container">
+                                            <p>Qty:&nbsp;</p>
+                                            <p data-testid="p-qty" className="cart-qty">{qty}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
